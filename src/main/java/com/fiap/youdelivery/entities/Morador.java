@@ -1,5 +1,7 @@
 package com.fiap.youdelivery.entities;
 
+import com.fiap.youdelivery.dto.MoradorDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,10 +41,11 @@ public class Morador {
 	@NotBlank(message="Por favor! preencha o número do apartamento")
 	private String apartamento;
 	
+	//CONSTRUTOR VAZIO DA CLASSE MORADOR
 	public Morador () {
 		
 	}
-
+    //CONSTTRUTOR POPULADO DA CLASSE MORADOR
 	public Morador(Long id, String morador, String cpf, String telefone, String celular, String email,
 			String apartamento) {
 		this.id = id;
@@ -52,6 +55,18 @@ public class Morador {
 		this.celular = celular;
 		this.email = email;
 		this.apartamento = apartamento;
+	}
+	
+	
+	//CONSTRUTOR PARA RELACIONAMENTO COM O MÉTODO TOENTITTY DA CLASSE DTO
+	public Morador(MoradorDTO dto) {
+		this.id = dto.getId();
+		this.morador = dto.getMorador();
+		this.cpf = dto.getCpf();
+		this.telefone = dto.getTelefone();
+		this.celular = dto.getCelular();
+		this.email = dto.getEmail();
+		this.apartamento = dto.getApartamento();
 	}
 
 	public Long getId() {
