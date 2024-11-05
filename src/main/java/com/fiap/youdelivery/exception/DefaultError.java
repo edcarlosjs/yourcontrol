@@ -1,4 +1,4 @@
-package com.techchallenge.ecommerce.exception;
+package com.fiap.youdelivery.exception;
 
 import java.time.Instant;
 

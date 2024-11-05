@@ -1,6 +1,5 @@
 package com.fiap.youdelivery.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -8,9 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fiap.youdelivery.dto.MoradorDTO;
+import com.fiap.youdelivery.exception.ControllerNotFoundException;
+import com.fiap.youdelivery.exception.DatabaseException;
 import com.fiap.youdelivery.repository.IMoradorRepository;
-import com.techchallenge.ecommerce.exception.ControllerNotFoundException;
-import com.techchallenge.ecommerce.exception.DatabaseException;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -22,7 +21,6 @@ public class MoradorService {
 	  
 	  //Construtor do service
 	  
-	 @Autowired
 	  public MoradorService(IMoradorRepository moradorRepository) {
 		  this.moradorRepository = moradorRepository;
 	  }

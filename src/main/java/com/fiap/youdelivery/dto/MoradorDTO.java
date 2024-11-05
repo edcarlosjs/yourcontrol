@@ -4,6 +4,7 @@ import com.fiap.youdelivery.entities.Morador;
 
 public class MoradorDTO {
 
+	
 	private Long id;
 	private String morador;
 	private String cpf;

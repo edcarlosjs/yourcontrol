@@ -32,14 +32,19 @@ public class Morador {
 	@Column(name = "nr_telefone")
 	private String telefone;
 	@Column(name = "nr_celular")
-	@NotBlank(message="Por favor! preencha as numero de celular")
+	@NotBlank(message= "Por favor! preencha as numero de celular")
 	private String celular;
 	@Column(name = "email")
-	@NotBlank(message="Por favor! preencha o email")
+	@NotBlank(message= "Por favor! preencha o email")
 	private String email;
 	@Column(name = "nr_apartamento")
-	@NotBlank(message="Por favor! preencha o número do apartamento")
+	@NotBlank(message= "Por favor! preencha o número do apartamento")
 	private String apartamento;
+	
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "id_user")
+//    private Usuarios usuarios;
 	
 	//CONSTRUTOR VAZIO DA CLASSE MORADOR
 	public Morador () {
@@ -124,7 +129,14 @@ public class Morador {
 	public void setApartamento(String apartamento) {
 		this.apartamento = apartamento;
 	}
-
+	
+	
+//	public Usuarios getUsuarios() {
+//		return usuarios;
+//	}
+//	public void setUsuarios(Usuarios usuarios) {
+//		this.usuarios = usuarios;
+//	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

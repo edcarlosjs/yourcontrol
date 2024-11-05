@@ -1,4 +1,4 @@
-package com.techchallenge.ecommerce.exception;
+package com.fiap.youdelivery.exception;
 
 public class ControllerNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

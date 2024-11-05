@@ -1,5 +1,7 @@
 package com.fiap.youdelivery.entities;
 
+import com.fiap.youdelivery.dto.FuncionarioDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ public class Funcionario {
     private Long id;
 	@Column(name = "nm_funcionario")
 	@NotBlank(message="Por favor! preencha o nome")
-    private String funcionario;
+    private String nome;
 	@Column(name = "ds_funcao")
 	@NotBlank(message="Por favor! preencha a função")
     private String funcao;
@@ -26,17 +28,31 @@ public class Funcionario {
 	@NotBlank(message="Por favor! preencha o turno")
     private String turno;
 	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "id_user")
+//    private Usuarios usuarios;
+	
      
      public Funcionario() {
 		
 	}
 
 
-	public Funcionario(Long id, String funcionario, String funcao, String turno) {
+	public Funcionario(Long id, String nome, String funcao, String turno) {
 		this.id = id;
-		this.funcionario = funcionario;
+		this.nome = nome;
 		this.funcao = funcao;
 		this.turno = turno;
+	}
+
+	//CONSTRUTOR PARA RELACIONAMENTO COM O MÉTODO TOENTITTY DA CLASSE DTO
+	public Funcionario(FuncionarioDTO dto) {
+		
+		this.id = dto.getId();
+		this.nome = dto.getNome();
+		this.funcao = dto.getFuncao();
+		this.turno = dto.getTurno();
+	
 	}
 
 
@@ -50,13 +66,13 @@ public class Funcionario {
 	}
 
 
-	public String getFuncionario() {
-		return funcionario;
+	public String getNome() {
+		return nome;
 	}
 
 
-	public void setFuncionario(String funcionario) {
-		this.funcionario = funcionario;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 
@@ -78,6 +94,17 @@ public class Funcionario {
 	public void setTurno(String turno) {
 		this.turno = turno;
 	}
+
+	
+
+//	public Usuarios getUsuarios() {
+//		return usuarios;
+//	}
+//
+//
+//	public void setUsuarios(Usuarios usuarios) {
+//		this.usuarios = usuarios;
+//	}
 
 
 	@Override
@@ -109,7 +136,7 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "Funcionario [id=" + id + ", funcionario=" + funcionario + ", funcao=" + funcao + ", turno=" + turno
+		return "Funcionario [id=" + id + ", nome=" + nome + ", funcao=" + funcao + ", turno=" + turno
 				+ "]";
 	}
      

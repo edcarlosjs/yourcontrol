@@ -1,4 +1,4 @@
-package com.fiap.youdelivery.contrtoller;
+package com.fiap.youdelivery.controller;
 
 import java.net.URI;
 
@@ -51,7 +51,7 @@ public class MoradorController {
 	@PostMapping //Gravando o registro 
 	public ResponseEntity<MoradorDTO> save(@Valid @RequestBody MoradorDTO dto){
 		var morador = moradorService.save(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand((morador.getId())).toUri(); //Boiler Plaet
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand((morador.getId())).toUri(); //Boiler Plate
 		return ResponseEntity.created(uri).body(morador);	
 	}
 	

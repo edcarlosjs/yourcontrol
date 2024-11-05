@@ -1,0 +1,1 @@
+insert into tb_usuario (username, senha, papel, created_at, updated_at ) values ('edcarlos','$2a$10$lbLLBoYIRbX5ihyLaQ7AHO3wKSuXPUM1WPHKH6k39FAlRLncTWjNC','ADMIN',null,null);

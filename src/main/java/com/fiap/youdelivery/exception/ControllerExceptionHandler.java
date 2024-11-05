@@ -1,5 +1,7 @@
-package com.techchallenge.ecommerce.exception;
+package com.fiap.youdelivery.exception;
 
+
+import java.nio.file.AccessDeniedException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,4 +26,15 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(status).body(this.error);
 
     }
+    
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<DefaultError> handleAccessDeniedException(AccessDeniedException exception, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
+        error.setStatus(status.value());
+        error.setError("Acesso negado");
+        error.setMessage("Você não tem permissão para acessar este recurso.");
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
+    }
+   
 }
