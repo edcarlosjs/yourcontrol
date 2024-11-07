@@ -42,6 +42,7 @@ public class Morador {
 	private String apartamento;
 	
 	
+	
 //	@OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "id_user")
 //    private Usuarios usuarios;
