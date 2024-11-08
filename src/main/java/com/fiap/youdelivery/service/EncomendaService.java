@@ -1,5 +1,6 @@
 package com.fiap.youdelivery.service;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.fiap.youdelivery.dto.EncomendaDTO;
 import com.fiap.youdelivery.entities.Encomenda;
+import com.fiap.youdelivery.exception.ResourceNotFoundException;
 import com.fiap.youdelivery.repository.IEncomendaRepository;
 import com.fiap.youdelivery.repository.IMoradorRepository;
 
@@ -61,11 +63,22 @@ public class EncomendaService {
         }
     }
     
+    public Encomenda darBaixaEncomenda(Long encomendaId) {
+        Encomenda encomenda = encomendaRepository.findById(encomendaId)
+              .orElseThrow(() -> new ResourceNotFoundException("Encomenda não encontrada"));
+        encomenda.setRetirada(true);
+        encomenda.setDtRetirada(LocalDateTime.now());
+        return encomendaRepository.save(encomenda);
+    }
     
-
-//    private String buscarEmailDoMorador(String nomeMorador) {
-//        // Implemente uma lógica para obter o e-mail do morador (ex: através do MoradorRepository)
-//        return "morador@exemplo.com"; // Exemplo de retorno de e-mail
+//    public void darBaixaEncomenda(Long encomendaId) {
+//        Encomenda encomenda = encomendaRepository.findById(encomendaId)
+//              .orElseThrow(() -> new ResourceNotFoundException("Encomenda não encontrada"));
+//        encomenda.setRetirada(true);
+//        encomenda.setDtRetirada(LocalDateTime.now());
+//        encomendaRepository.save(encomenda);
 //    }
+
+
 }
 

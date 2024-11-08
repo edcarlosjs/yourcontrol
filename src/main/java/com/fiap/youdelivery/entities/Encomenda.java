@@ -1,5 +1,7 @@
 package com.fiap.youdelivery.entities;
 
+import java.time.LocalDateTime;
+
 import com.fiap.youdelivery.dto.EncomendaDTO;
 
 import jakarta.persistence.Column;
@@ -7,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
@@ -35,16 +38,28 @@ public class Encomenda {
 	@Column(name = "sn_processado")
 	private Boolean processado = false;
 	
+	@Column(name = "sn_retirada")
+	private Boolean retirada = false;
+
+	@Column(name = "dt_retirada")
+    private LocalDateTime dtRetirada;
+
+	
+    @ManyToOne
+    private Morador morador;
+
 	public Encomenda() {
 		
 	}
 
-	public Encomenda(Long id, String nm_morador, String nr_apartamento, String encomenda, Boolean processado) {
+	public Encomenda(Long id, String nm_morador, String nr_apartamento, String encomenda, Boolean processado, LocalDateTime dtRetirada, Boolean retirada) {
 		this.id = id;
 		this.nm_morador = nm_morador;
 		this.nr_apartamento = nr_apartamento;
 		this.encomenda = encomenda;
 		this.processado = processado;
+		this.dtRetirada = dtRetirada;
+		this.retirada = retirada;
 	}
 	
 	//CONSTRUTOR PARA RELACIONAMENTO COM O MÉTODO TOENTITTY DA CLASSE DTO
@@ -54,6 +69,8 @@ public class Encomenda {
 		this.nr_apartamento = dto.getNr_apartamento();
 		this.encomenda = dto.getEncomenda();
 		this.processado = dto.getProcessado();
+		this.dtRetirada = dto.getDtRetirada();
+		this.retirada = dto.getRetirada();
 	}
 
 	public Long getId() {
@@ -96,6 +113,30 @@ public class Encomenda {
 	public void setProcessado(Boolean processado) {
 		this.processado = processado;
 	}
+	
+	public Boolean getRetirada() {
+		return retirada;
+	}
+
+	public void setRetirada(Boolean retirada) {
+		this.retirada = retirada;
+	}
+
+	public LocalDateTime getDtRetirada() {
+		return dtRetirada;
+	}
+
+	public void setDtRetirada(LocalDateTime dtRetirada) {
+		this.dtRetirada = dtRetirada;
+	}
+
+	public Morador getMorador() {
+		return morador;
+	}
+
+	public void setMorador(Morador morador) {
+		this.morador = morador;
+	}
 
 	@Override
 	public int hashCode() {
@@ -124,8 +165,11 @@ public class Encomenda {
 
 	@Override
 	public String toString() {
-		return "Encomenda [id=" + id + ", nm_morador=" + nm_morador + ", nr_apartamento=" + nr_apartamento + ", encomenda=" + encomenda + ", processado=" + processado + "]";
+		return "Encomenda [id=" + id + ", nm_morador=" + nm_morador + ", nr_apartamento=" + nr_apartamento
+				+ ", encomenda=" + encomenda + ", processado=" + processado + ", retirada=" + retirada + ", dtRetirada="
+				+ dtRetirada + ", morador=" + morador + "]";
 	}
 
+	
 
 }

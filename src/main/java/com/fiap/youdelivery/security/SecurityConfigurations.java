@@ -38,6 +38,8 @@ public class SecurityConfigurations {
                     .requestMatchers(HttpMethod.GET, "/morador").hasRole("USER")
                     .requestMatchers(HttpMethod.PUT, "/morador").hasRole("USER")
                     .requestMatchers(HttpMethod.POST,"/encomenda/registro").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.PUT, "/encomenda/baixa").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.PUT, "/notificacoes/confirmar").hasRole("USER")
                     
                     //.anyRequest().permitAll()
                 )
