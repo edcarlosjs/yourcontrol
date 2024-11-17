@@ -29,7 +29,7 @@ Cria um usuario através dos dados recebidos via JSON no corpo da requisição.
     }
 ```
 #### *Resultado* <br /><br />
-<img width="686" alt="Retorno da inserção do Usuário" src="youdelivery/img/Retorno Cadastro de usuario.png">
+<img width="686" alt="Retorno da inserção do Usuário" src="https://github.com/edcarlosjs/yourcontrol/blob/main/img/Retorno%20Cadastro%20de%20usuario.png?raw=true">
 <br />
 
 📌
