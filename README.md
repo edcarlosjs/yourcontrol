@@ -1,4 +1,4 @@
-# Projeto pós graduação | Tech challenge - parquimetro fase 3
+# Projeto pós graduação | Tech challenge - youdelivery fase 5
 
 Projeto Teche Challenge realizado para pós-graduação [FIAP](https://www.fiap.com.br/) do curso de [Arquitetura e desenvolvimentoJAVA](https://postech.fiap.com.br/curso/arquitetura-desenvolvimento-java) propõe na quinta fase do curso o desenvolvimento de um sistema WEB, com interfaces e APIS, para cadastro de encomendas, fucionários e moradores, com a finalidade de gerenciar encomendas para prédios residenciais, por meio do qual porteiros recebam e organizem as entregas, utilizando tecnologias para que o sistema notifique moradores sobre a chegada das encomendas e para que eles confirmem seu recebimento. Além disso, esse sistema deve registrar automaticamente a retirada das encomendas na portaria. A API foi desenvolvida com as tecnologias Spring Boot, Spring Security, Java17, Maven e banco de dados local mysql. e banco de dados mysql em nuvem no Docker o objetivo de uma solução pratica com a utilização de endpoints para realização de operações  de criação, atualização e recuperação de registros. 
 
