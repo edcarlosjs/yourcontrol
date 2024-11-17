@@ -29,7 +29,6 @@ Cria um usuario através dos dados recebidos via JSON no corpo da requisição.
     }
 ```
 #### *Resultado* <br /><br />
-<img width="1000" alt="Retorno da inserção do Usuário" src="https://github.com/edcarlosjs/yourcontrol/blob/main/img/Retorno%20Cadastro%20de%20usuario.png?raw=true">
 ![Descrição da imagem](img/Retorno Cadastro de usuario.png)
 <br />
 
